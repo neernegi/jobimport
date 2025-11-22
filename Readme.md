@@ -32,18 +32,29 @@ The setup is kept intentionally simple so anyone can clone → run → understan
 
 ## .env file - use your own credentials as i am providing fields only ##
 
-PORT=4000
+PORT=4000 
+
 MONGO_URI=
+
 REDIS_URL=redis://redis:6379
-QUEUE_NAME=job_import_queue
+
+QUEUE_NAME=job_import_queue  
+
 WORKER_CONCURRENCY=5
+
 BATCH_SIZE=50
-CRON_EXPRESSION=0 * * * *  
+
+CRON_EXPRESSION=0 * * * *
+
 SOCKET_IO_PORT=4000
+
 IMPORT_EVENTS_CHANNEL=import-events
+
 REDIS_HOST=redis
+
 REDIS_PORT=6379
 
+ 
 
 ## In frontend ##
 run ----*npm install* - for installing dependencies --
@@ -59,7 +70,6 @@ This runs: MongoDB, Redis, API Server, Worker Service, Cron Service
 
 
 ### 1️⃣ Build & Start
-```bash
 docker compose up -d --build
 
 2️⃣ Stop & Remove
@@ -73,10 +83,15 @@ No need to install Redis or Mongo locally.
 Useful Docker Logs - 
 
 Server logs - To debug API, MongoDB connection, or Socket.IO events.
+
     docker logs -f job_importer_server
 
 Worker logs - To see import progress, failures, or batch processing issues.
-   docker logs -f job_importer_worker
+
+    docker logs -f job_importer_worker
+   
+
 
 Cron logs - To confirm external feeds are fetched and jobs are added to queue.
+
     docker logs -f job_importer_cron
