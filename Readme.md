@@ -57,7 +57,8 @@ REDIS_PORT=6379
  
 
 ## In frontend ##
-run ----*npm install* - for installing dependencies --
+run ----*npm install* - for installing dependencies in NextJs --
+
 run --- *npm run dev* -- for running port 
 
 ## backend ##
