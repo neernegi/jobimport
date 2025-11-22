@@ -4,7 +4,7 @@ This document explains how the Job Importer is designed, why certain architectur
 
 ---
 
-# 🏗️ High-Level Components
+#  High-Level Components
 
 ### **1. Cron Service**
 The cron worker fetches external RSS/XML job feeds at fixed intervals.  
@@ -116,6 +116,8 @@ For each batch:
 ### **6. Create import log**
 One record is inserted into `import_logs`:
 
+
+
 ```json
 {
   "_id": {
@@ -138,50 +140,46 @@ One record is inserted into `import_logs`:
   },
   "__v": 0
 }
+```
+
+
+
+
 
 
 System Design Decisions
 
-1. Why choose a queue ?
-Direct insertion risks:
-sudden spikes of 1,000+ jobs blocking the server
-inconsistent external feed latency
-API slowdowns from heavy DB writes
+Why choose a queue ?
+
+Direct insertion risks:   
+sudden spikes of 1,000+ jobs blocking the server, 
+inconsistent external feed latency, 
+API slowdowns from heavy DB writes.
 
 Queue solves all of this:
-smooths out spikes
-isolates failures
-allows retry logic
-lets workers scale independently
+
+smooths out spikes, 
+isolates failures, 
+allows retry logic, 
+lets workers scale independently.
 
 
-2. Why split components (API, Cron, Worker)?
-Instead of one large server:
-smaller services are easier to debug
-worker-heavy loads do not slow the API
-cron failures cannot crash the system
-scaling becomes granular (scale only workers)
+Why split components (API, Cron, Worker)?
+
+Instead of one large server:   
+smaller services are easier to debug, 
+worker-heavy loads do not slow the API, 
+cron failures cannot crash the system, 
+scaling becomes granular (scale only workers).
 
 
 Why BullMQ over ?
 
-BullMQ provides:
-automatic retry
-back-off strategies
-concurrency handling
-job state tracking
-event listeners
+BullMQ provides:  
+automatic retry, 
+back-off strategies, 
+concurrency handling, 
+job state tracking, 
+event listeners.
 
 
-Why store import history separately?
-You could compute logs by diffing data — but that is expensive.
-A dedicated import_logs collection gives:
-zero-cost reporting
-full audit trail
-debugging information
-metrics visibility
-MongoDB fits:
-semi-structured RSS feeds
-unstructured HTML-rich descriptions
-flexible schema evolution
-fast upserts using guid
