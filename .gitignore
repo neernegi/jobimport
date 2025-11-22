@@ -1,0 +1,106 @@
+
+# -------------------------
+# Node Dependencies
+# -------------------------
+node_modules/
+**/node_modules/
+
+# -------------------------
+# Yarn / pnpm / npm
+# -------------------------
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# -------------------------
+# Environment Variables
+# (DO NOT COMMIT ANY .env FILE)
+# -------------------------
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.test
+
+# -------------------------
+# Next.js build outputs
+# -------------------------
+.next/
+out/
+
+# -------------------------
+# Backend build outputs
+# -------------------------
+build/
+dist/
+
+# -------------------------
+# Coverage / Testing
+# -------------------------
+coverage/
+
+# -------------------------
+# OS Files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Certificates / Keys
+# -------------------------
+*.pem
+*.key
+
+# -------------------------
+# Vercel
+# -------------------------
+.vercel
+
+# -------------------------
+# TypeScript
+# -------------------------
+*.tsbuildinfo
+next-env.d.ts
+
+# -------------------------
+# Logs
+# -------------------------
+logs
+*.log
+logs/*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# -------------------------
+# Docker
+# -------------------------
+docker-data/
+docker-compose.override.yml
+
+# -------------------------
+# Redis / MongoDB volumes
+# -------------------------
+mongo_data/
+redis_data/
+
+# -------------------------
+# Ignore local editor settings
+# -------------------------
+.vscode/
+.idea/
+
+# -------------------------
+# Prevent adding nested git repos
+# -------------------------
+frontend/.git/
+backend/.git/

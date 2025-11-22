@@ -1,0 +1,29 @@
+{
+  "name": "job-importer-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js --inspect=0.0.0.0:9229",
+    "worker": "node worker.js",
+    "cron": "node cron.js"
+  },
+  "dependencies": {
+    "@socket.io/redis-adapter": "^7.1.0",
+    "axios": "^1.5.0",
+    "bullmq": "^1.87.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.2",
+    "mongoose": "^7.5.0",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.2",
+    "socket.io": "^4.8.1",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
