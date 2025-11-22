@@ -30,29 +30,6 @@ The setup is kept intentionally simple so anyone can clone → run → understan
 ## clone from github -  ##
 
 
-## .env file - use your own credentials as i am providing fields only ##
-
-PORT=4000 
-
-MONGO_URI=
-
-REDIS_URL=redis://redis:6379
-
-QUEUE_NAME=job_import_queue  
-
-WORKER_CONCURRENCY=5
-
-BATCH_SIZE=50
-
-CRON_EXPRESSION=0 * * * *
-
-SOCKET_IO_PORT=4000
-
-IMPORT_EVENTS_CHANNEL=import-events
-
-REDIS_HOST=redis
-
-REDIS_PORT=6379
 
  
 
@@ -64,6 +41,9 @@ run --- *npm run dev* -- for running port
 ## backend ##
 
 run ---- *npm install* --- for installing dependencies
+
+## keep backend .env file inside inside backend folder ## 
+
 
 For Running backend server ------> 
 ## Run With Docker
