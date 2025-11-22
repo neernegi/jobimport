@@ -25,7 +25,6 @@ export default function Home() {
       console.log("Socket connected:", socket.id);
     });
 
-    // Worker events (from worker.js)
     socket.on("import:started", (data) => {
       console.log("Import started:", data);
       fetchLogs();
@@ -56,12 +55,12 @@ export default function Home() {
 
   return (
     <div className="px-6 py-10 bg-gray-100 min-h-screen">
-      {/* HEADER */}
+     
       <h1 className="text-3xl font-bold text-gray-800 mb-6">
         📊 Import History Dashboard
       </h1>
 
-      {/* TABLE CARD */}
+  
       <div className="bg-white shadow-lg rounded-xl p-6 overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead>
@@ -112,7 +111,7 @@ export default function Home() {
           </tbody>
         </table>
 
-        {/* PAGINATION */}
+     
         <div className="flex justify-between items-center mt-6">
           <button
             disabled={page === 1}
